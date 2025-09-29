@@ -202,7 +202,7 @@ def run_analysis():
         """).fetchall()
     
 
-    #create dataframes and sort by avg co2 emissions descending
+    #create dataframes and sort by month
     yellow_df = pd.DataFrame(yellow_data, columns=['month_of_year', 'avg_co2_yellow'])
     green_df = pd.DataFrame(green_data, columns=['month_of_year', 'avg_co2_green'])
     yellow_df = yellow_df.sort_values(by='month_of_year')
