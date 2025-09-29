@@ -27,7 +27,6 @@ def run_analysis():
     min_avg_co2_yellow_hour = con.execute("""
             SELECT hour_of_day, AVG(trip_co2_kgs) as avg_co2_yellow
             FROM yellow_transform
-            WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
             GROUP BY hour_of_day
             ORDER BY avg_co2_yellow ASC LIMIT 1
             ; """).fetchone() #limit 1 on asc finds lowest
@@ -37,7 +36,6 @@ def run_analysis():
     max_avg_co2_yellow_hour = con.execute("""
             SELECT hour_of_day, AVG(trip_co2_kgs) as avg_co2_yellow
             FROM yellow_transform
-            WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
             GROUP BY hour_of_day
             ORDER BY avg_co2_yellow DESC LIMIT 1
             ; """).fetchone() #limit 1 on desc finds highest
@@ -47,7 +45,6 @@ def run_analysis():
     min_avg_co2_green_hour = con.execute("""
             SELECT hour_of_day, AVG(trip_co2_kgs) as avg_co2_green
             FROM green_transform
-            WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
             GROUP BY hour_of_day
             ORDER BY avg_co2_green ASC LIMIT 1
             ; """).fetchone()
@@ -57,7 +54,6 @@ def run_analysis():
     max_avg_co2_green_hour = con.execute("""
             SELECT hour_of_day, AVG(trip_co2_kgs) as avg_co2_green
             FROM green_transform
-            WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
             GROUP BY hour_of_day
             ORDER BY avg_co2_green DESC LIMIT 1
             ;
@@ -74,7 +70,6 @@ def run_analysis():
     min_avg_co2_yellow_day=con.execute("""
             SELECT day_of_week, AVG(trip_co2_kgs) as avg_co2_yellow
             FROM yellow_transform
-            WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
             GROUP BY day_of_week
             ORDER BY avg_co2_yellow ASC LIMIT 1
             ; """).fetchone()
@@ -84,7 +79,6 @@ def run_analysis():
             SELECT day_of_week,
             AVG(trip_co2_kgs) as avg_co2_yellow
             FROM yellow_transform
-            WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
             GROUP BY day_of_week
             ORDER BY avg_co2_yellow DESC LIMIT 1
             ; """).fetchone()
@@ -93,7 +87,6 @@ def run_analysis():
     min_avg_co2_green_day=con.execute("""      
             SELECT day_of_week, AVG(trip_co2_kgs) as avg_co2_green
             FROM green_transform
-            WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
             GROUP BY day_of_week
             ORDER BY avg_co2_green ASC LIMIT 1
             ; """).fetchone()
@@ -103,7 +96,6 @@ def run_analysis():
     max_avg_co2_green_day=con.execute("""
             SELECT day_of_week, AVG(trip_co2_kgs) as avg_co2_green
             FROM green_transform
-            WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
             GROUP BY day_of_week
             ORDER BY avg_co2_green DESC LIMIT 1
             ;
@@ -119,7 +111,6 @@ def run_analysis():
     min_avg_co2_yellow_week=con.execute("""
                 SELECT week_of_year, AVG(trip_co2_kgs) as avg_co2_yellow
                 FROM yellow_transform
-                WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
                 GROUP BY week_of_year
                 ORDER BY avg_co2_yellow ASC  LIMIT 1
                 ;""").fetchone()
@@ -128,7 +119,6 @@ def run_analysis():
     max_avg_co2_yellow_week=con.execute("""
                 SELECT week_of_year, AVG(trip_co2_kgs) as avg_co2_yellow
                 FROM yellow_transform
-                WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
                 GROUP BY week_of_year
                 ORDER BY avg_co2_yellow DESC LIMIT 1
                 ;""").fetchone()
@@ -137,7 +127,6 @@ def run_analysis():
     min_avg_co2_green_week=con.execute("""
                 SELECT week_of_year, AVG(trip_co2_kgs) as avg_co2_green
                 FROM green_transform
-                WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
                 GROUP BY week_of_year
                 ORDER BY avg_co2_green ASC LIMIT 1
                 ;""").fetchone()
@@ -146,7 +135,6 @@ def run_analysis():
     max_avg_co2_green_week=con.execute("""
                 SELECT week_of_year, AVG(trip_co2_kgs) as avg_co2_green 
                 FROM green_transform
-                WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
                 GROUP BY week_of_year
                 ORDER BY avg_co2_green DESC LIMIT 1
                 ;
@@ -162,7 +150,6 @@ def run_analysis():
     min_avg_co2_yellow_month=con.execute("""
             SELECT month_of_year, AVG(trip_co2_kgs) as avg_co2_yellow
             FROM yellow_transform
-            WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
             GROUP BY month_of_year
             ORDER BY avg_co2_yellow ASC LIMIT 1
             ;""").fetchone()
@@ -171,7 +158,6 @@ def run_analysis():
     max_avg_co2_yellow_month=con.execute("""   
             SELECT month_of_year, AVG(trip_co2_kgs) as avg_co2_yellow
             FROM yellow_transform
-            WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
             GROUP BY month_of_year
             ORDER BY avg_co2_yellow DESC LIMIT 1
             ;""").fetchone()
@@ -180,7 +166,6 @@ def run_analysis():
     min_avg_co2_green_month=con.execute("""
             SELECT month_of_year, AVG(trip_co2_kgs) as avg_co2_green
             FROM green_transform
-            WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
             GROUP BY month_of_year
             ORDER BY avg_co2_green ASC LIMIT 1
             ; """).fetchone()
@@ -189,7 +174,6 @@ def run_analysis():
     max_avg_co2_green_month=con.execute("""
             SELECT month_of_year, AVG(trip_co2_kgs) as avg_co2_green
             FROM green_transform
-            WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
             GROUP BY month_of_year
             ORDER BY avg_co2_green DESC LIMIT 1
             ;
@@ -207,14 +191,12 @@ def run_analysis():
     yellow_data = con.execute("""
         SELECT month_of_year, AVG(trip_co2_kgs) as avg_co2_yellow
         FROM yellow_transform
-        WHERE tpep_pickup_datetime >= '2024-01-01' AND tpep_pickup_datetime < '2025-01-01'
         GROUP BY month_of_year
         ORDER BY month_of_year ASC;
         """).fetchall()
     green_data = con.execute("""
         SELECT month_of_year, AVG(trip_co2_kgs) as avg_co2_green
         FROM green_transform
-        WHERE lpep_pickup_datetime >= '2024-01-01' AND lpep_pickup_datetime < '2025-01-01'
         GROUP BY month_of_year
         ORDER BY month_of_year ASC;
         """).fetchall()
