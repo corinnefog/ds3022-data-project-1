@@ -202,33 +202,21 @@ def run_analysis():
         """).fetchall()
     
 
-<<<<<<< HEAD
-    #create dataframes and sort by avg co2 emissions descending
-=======
+
+
     #create dataframes and sort by month
->>>>>>> 14df7359bc63bd36798752721c5c01484ab6c0f1
     yellow_df = pd.DataFrame(yellow_data, columns=['month_of_year', 'total_co2_yellow'])
     green_df = pd.DataFrame(green_data, columns=['month_of_year', 'total_co2_green'])
-    yellow_df = yellow_df.sort_values(by='month_of_year')
-    green_df = green_df.sort_values(by='month_of_year')
 
     #2 plots in one figure
     fig,axs = plt.subplots(1, 2, figsize=(16, 5))
-    axs[0].bar(yellow_df['month_of_year'], yellow_df['total_co2_yellow'], color='blue', edgecolor='black')
-<<<<<<< HEAD
+    axs[0].bar(yellow_df['month_of_year'], yellow_df['total_co2_yellow'], color='blue')
     axs[0].set_title('Yellow Taxi Total CO2 Emissions by Month')
-=======
-    axs[0].set_title('Yellow Taxi Average CO2 Emissions by Month')
->>>>>>> 14df7359bc63bd36798752721c5c01484ab6c0f1
     axs[0].set_xlabel('Month of Year')
     axs[0].set_ylabel('Total CO2 Emissions (kgs)')
     axs[0].set_xticks(range(1,13))
-    axs[1].bar(green_df['month_of_year'], green_df['total_co2_green'], color='red', edgecolor='black')
-<<<<<<< HEAD
+    axs[1].bar(green_df['month_of_year'], green_df['total_co2_green'], color='red')
     axs[1].set_title('Green Taxi Total CO2 Emissions by Month')
-=======
-    axs[1].set_title('Green Taxi Average CO2 Emissions by Month')
->>>>>>> 14df7359bc63bd36798752721c5c01484ab6c0f1
     axs[1].set_xlabel('Month of Year')
     axs[1].set_ylabel('Total CO2 Emissions (kgs)')
     axs[1].set_xticks(range(1,13))
