@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: taxi_data
+    schema: main
+    tables:
+      - name: yellow_taxis
+      - name: green_taxis
+      - name: vehicle_emissions
